@@ -1,11 +1,13 @@
 import * as c from "../../actions/ActionTypes";
 import storyListReducer from "../../reducers/storyListReducer";
 
-describe("reducer", () => {
+describe("storyListReducer", () => {
   const initialState = {
     isLoaded: false,
     newStories: [],
     error: null,
+    currentPage: 0,
+    itemsPerPage: 12,
   };
 
   it("returns the initial state when an action type is not passed", () => {
@@ -36,6 +38,28 @@ describe("reducer", () => {
       ...initialState,
       isLoaded: true,
       error: "error",
+    });
+  });
+
+  it("handles SET_CURRENT_PAGE action", () => {
+    const newState = storyListReducer(initialState, {
+      type: c.SET_CURRENT_PAGE,
+      payload: 1,
+    });
+    expect(newState).toEqual({
+      ...initialState,
+      currentPage: 1,
+    });
+  });
+
+  it("handles SET_ITEMS_PER_PAGE action", () => {
+    const newState = storyListReducer(initialState, {
+      type: c.SET_ITEMS_PER_PAGE,
+      payload: 24,
+    });
+    expect(newState).toEqual({
+      ...initialState,
+      itemsPerPage: 24,
     });
   });
 });

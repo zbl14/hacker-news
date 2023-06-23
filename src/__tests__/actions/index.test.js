@@ -17,4 +17,20 @@ describe("top stories reducer actions", () => {
       payload: error,
     });
   });
+
+  it("setCurrentPage should create SET_CURRENT_PAGE action", () => {
+    const currentPage = 2;
+    expect(actions.setCurrentPage(currentPage)).toEqual({
+      type: c.SET_CURRENT_PAGE,
+      payload: currentPage,
+    });
+  });
+
+  it("setItemsPerPage should create SET_ITEMS_PER_PAGE action", () => {
+    const itemsPerPage = 24;
+    expect(actions.setItemsPerPage(itemsPerPage)).toEqual({
+      type: c.SET_ITEMS_PER_PAGE,
+      payload: itemsPerPage,
+    });
+  });
 });
