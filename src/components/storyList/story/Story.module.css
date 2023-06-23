@@ -1,17 +1,26 @@
-.card-container {
+.cardContainer {
   display: flex;
   height: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
 }
 
-.card-content {
+.cardContainer:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.cardContent {
   flex: 1;
+  padding: 15px;
 }
 
-.card-title {
+.cardTitle {
   font-size: 1.5rem;
   font-weight: 600;
+  margin-top: 0px;
 }
 
-.card-body {
+.cardBody {
   color: #6c757d; 
 }
