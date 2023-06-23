@@ -12,11 +12,23 @@ const Story = ({ id }) => {
   const { story, isLoading } = useStory(id);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <div className={styles.cardContainer}>
+        <div className={styles.cardContent}>
+          <h2 className={styles.cardTitle}>Loading...</h2>
+        </div>
+      </div>
+    );
   }
 
   if (!story) {
-    return <p>Story is deleted</p>;
+    return (
+      <div className={styles.cardContainer}>
+        <div className={styles.cardContent}>
+          <h2 className={styles.cardTitle}>Story is deleted</h2>
+        </div>
+      </div>
+    );
   }
 
   const { by, descendants, title, score, time, url } = story;
