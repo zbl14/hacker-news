@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrentPage, setItemsPerPage } from "../../../actions/index";
+import styles from "./Pagination.module.css";
 
 const Pagination = () => {
   const dispatch = useDispatch();
@@ -41,11 +42,16 @@ const Pagination = () => {
 
   return (
     <div>
-      <div>
-        <button onClick={() => handleClick(0)} disabled={currentPage === 0}>
+      <div className={styles.paginationContainer}>
+        <button
+          className={styles.button}
+          onClick={() => handleClick(0)}
+          disabled={currentPage === 0}
+        >
           First
         </button>
         <button
+          className={styles.button}
           onClick={() => handleClick(currentPage - 1)}
           disabled={currentPage === 0}
         >
@@ -55,22 +61,26 @@ const Pagination = () => {
         {createPageNumbers().map((num) => (
           <button
             key={num}
+            className={`${styles.button} ${
+              num - 1 === currentPage
+                ? styles.activeButton
+                : styles.inactiveButton
+            }`}
             onClick={() => handleClick(num - 1)}
-            style={{
-              backgroundColor: num - 1 === currentPage ? "blue" : "white",
-            }}
           >
             {num}
           </button>
         ))}
 
         <button
+          className={styles.button}
           onClick={() => handleClick(currentPage + 1)}
           disabled={currentPage === totalPages - 1}
         >
           Next
         </button>
         <button
+          className={styles.button}
           onClick={() => handleClick(totalPages - 1)}
           disabled={currentPage === totalPages - 1}
         >
@@ -78,20 +88,27 @@ const Pagination = () => {
         </button>
       </div>
 
-      <div>
-        <select value={itemsPerPage} onChange={handleItemsChange}>
+      <div className={styles.paginationContainer}>
+        <select
+          className={styles.select}
+          value={itemsPerPage}
+          onChange={handleItemsChange}
+        >
           <option value="12">12</option>
           <option value="24">24</option>
           <option value="36">36</option>
         </select>
         <input
           type="number"
+          className={styles.input}
           value={gotoPage}
           onChange={(e) => setGotoPage(e.target.value)}
           min="1"
           max={totalPages}
         />
-        <button onClick={handleGotoPage}>Go</button>
+        <button className={styles.button} onClick={handleGotoPage}>
+          Go
+        </button>
       </div>
     </div>
   );
