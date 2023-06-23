@@ -22,5 +22,15 @@
 }
 
 .cardBody {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.iconStyle {
+  margin-right: 0.5rem;
+}
+
+.textStyle {
   color: #6c757d; 
 }
