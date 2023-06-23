@@ -30,12 +30,6 @@ const Story = ({ id }) => {
             {title}
           </a>
         </h2>
-        {/* <p className={styles.cardBody}>By {by}</p>
-        <p className={styles.cardBody}>
-          Posted: {formatDistanceToNow(date)} ago
-        </p>
-        <p className={styles.cardBody}>{descendants} Comments</p>
-        <p className={styles.cardBody}>{score} Likes</p> */}
         <p className={styles.cardBody}>
           <AccountCircleIcon className={styles.iconStyle} />
           <span className={styles.textStyle}>{by}</span>
