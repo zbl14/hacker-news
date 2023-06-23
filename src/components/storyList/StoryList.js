@@ -1,17 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import useNewStories from "../../hooks/useNewStories";
+import Story from "./story/Story";
 
 const StoryList = () => {
   useNewStories();
   const newStories = useSelector((state) => state.newStories);
-  // console.log(newStories);
 
   return (
     <div>
       {newStories.map((id) => (
         <div key={id}>
-          <p>{id}</p>
+          <Story id={id} />
         </div>
       ))}
     </div>
