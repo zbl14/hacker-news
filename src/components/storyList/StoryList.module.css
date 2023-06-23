@@ -1,0 +1,31 @@
+.storyListContainer {
+  padding: 15px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.storyContainer {
+  flex: 100%;
+}
+
+@media (min-width: 576px) {
+  .storyContainer {
+    flex: 45%;
+  }
+}
+
+@media (min-width: 992px) {
+  .storyContainer {
+    flex: 30%;
+  }
+}
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
